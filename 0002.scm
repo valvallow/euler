@@ -78,4 +78,3 @@
 
 (time (apply + (map fib (iota 8000 1))))
 
-;; test
