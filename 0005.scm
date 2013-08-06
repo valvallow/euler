@@ -1,1 +1,1 @@
-(fold lcm 1 (iota 20 1))
+(print (fold lcm 1 (iota 20 1)))
