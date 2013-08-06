@@ -1,56 +1,13 @@
-;; 001
+;; 0001 Sum of squares of divisors
 
 ;; http://projecteuler.net/index.php?section=problems&id=1
 ;; If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
 ;; Find the sum of all the multiples of 3 or 5 below 1000.
 
 ;; http://odz.sakura.ne.jp/projecteuler/index.php?Problem%201
-;; 10–¢–‚Ì©‘R”‚Ì‚¤‚¿A3 ‚à‚µ‚­‚Í 5 ‚Ì”{”‚É‚È‚Á‚Ä‚¢‚é‚à‚Ì‚Í 3, 5, 6, 9 ‚Ì4‚Â‚ª‚ ‚èA ‚±‚ê‚ç‚Ì‡Œv‚Í 23 ‚É‚È‚éB
-;; “¯‚¶‚æ‚¤‚É‚µ‚ÄA1,000 –¢–‚Ì 3 ‚© 5 ‚Ì”{”‚É‚È‚Á‚Ä‚¢‚é”š‚Ì‡Œv‚ğ‹‚ß‚æB
+;; 10æœªæº€ã®è‡ªç„¶æ•°ã®ã†ã¡ã€3 ã‚‚ã—ãã¯ 5 ã®å€æ•°ã«ãªã£ã¦ã„ã‚‹ã‚‚ã®ã¯ 3, 5, 6, 9 ã®4ã¤ãŒã‚ã‚Šã€ ã“ã‚Œã‚‰ã®åˆè¨ˆã¯ 23 ã«ãªã‚‹ã€‚
+;; åŒã˜ã‚ˆã†ã«ã—ã¦ã€1,000 æœªæº€ã® 3 ã‹ 5 ã®å€æ•°ã«ãªã£ã¦ã„ã‚‹æ•°å­—ã®åˆè¨ˆã‚’æ±‚ã‚ã‚ˆã€‚
 
-
-(use srfi-1)
-
-(apply + (filter (lambda (e)
-                   (or (zero? (remainder e 3))
-                       (zero? (remainder e 5))))
-                 (iota 10)))
-;; 23
-
-
-(define (filter-sum pred ls)
-  (apply + (filter pred ls)))
-
-(filter-sum (lambda (e)
-              (or (zero? (remainder e 3))
-                  (zero? (remainder e 5))))
-            (iota 1000))
-;; 233168
-
-
-(let1 f (compose zero? (pa$ remainder))
-  (filter-sum (lambda (e)
-                (or (f e 3)
-                    (f e 5)))
-              (iota 1000)))
-
-
-(define (aliquant? n d)
-  (zero? (remainder n d)))
-
-
-(filter-sum (lambda (e)
-              (or (aliquant? e 3)
-                  (aliquant? e 5)))
-            (iota 1000))
-;; 233168
-
-
-(define (aliquant-any? n d . ds)
-  (any (lambda (d)
-         (aliquant? n d))(cons d ds)))
-
-(filter-sum (cut aliquant-any? <> 3 5)
-            (iota 1000))
-;; 233168
-
+(print (apply + (filter (^x (or (zero? (modulo x 5))
+                                (zero? (modulo x 3))))
+                        (iota 999 1))))
