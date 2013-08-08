@@ -1,4 +1,3 @@
-(use gauche.generator)
 (use srfi-42)
 
 ;; https://github.com/shirok/Gauche/blob/master/test/srfi.scm
@@ -19,4 +18,3 @@
     (when (= 1000 (apply + ls))
       (print (apply * ls))
       (break))))
-
