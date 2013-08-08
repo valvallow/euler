@@ -14,6 +14,9 @@
    (if (= (* c c) sqr-c))
    (list a b c)))
 
-(dolist (ls (pythagoras 500))
-  (when (= 1000 (apply + ls))
-    (print (apply * ls))))
+(let/cc break
+  (dolist (ls (pythagoras 500))
+    (when (= 1000 (apply + ls))
+      (print (apply * ls))
+      (break))))
+
