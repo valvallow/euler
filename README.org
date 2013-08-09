@@ -1,0 +1,9 @@
+* [[http://projecteuler.net/][Project Euler]]
+** My Friend Key
+   81851772165401_e1a58177799f3150b7c038b482b34431
+** Language
+   [[http://practical-scheme.net/gauche/index.html][Gauche]]
+   #+BEGIN_EXAMPLE
+    % gosh -V
+    Gauche scheme shell, version 0.9.4_pre3 [utf-8,pthreads], x86_64-unknown-linux-gnu
+   #+END_EXAMPLE
