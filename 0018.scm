@@ -31,8 +31,11 @@
        above-row
        (shift-slices bottom-row 2)))
 
-(let rec ((lol (reverse datum)))
-  (if (null? (cdr lol))
-      (print (caar lol))
-      (rec (cons (sum-of-minimum-triangles (cadr lol)(car lol))
-                 (cddr lol)))))
+(define (sum-max-root datum)
+  (let rec ((lol (reverse datum)))
+    (if (null? (cdr lol))
+        (caar lol)
+        (rec (cons (sum-of-minimum-triangles (cadr lol)(car lol))
+                   (cddr lol))))))
+
+(print (sum-max-root datum))
