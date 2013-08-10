@@ -6,13 +6,13 @@
   (apply + (map (apply$ *)
                 (power-set* (mc-factorize x)))))
 
-(define (sum-of-true-divisor x)
+(define (sum-of-proper-divisor x)
   (- (sum-of-divisor x) x))
 
 (print
- (apply + (filter-map (^n (and-let* ((sod (sum-of-true-divisor n))
+ (apply + (filter-map (^n (and-let* ((sod (sum-of-proper-divisor n))
                                      ((not (= n sod)))
-                                     ((= (sum-of-true-divisor sod) n))
+                                     ((= (sum-of-proper-divisor sod) n))
                                      (n))))
                       (iota 10000))))
 
