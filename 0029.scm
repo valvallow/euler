@@ -1,0 +1,7 @@
+(let ((indices (iota 99 2))
+      (ht (make-hash-table 'eqv?)))
+  (dolist (i indices)
+    (dolist (j indices)
+      (let1 n (expt i j)
+        (hash-table-put! ht n n))))
+  (print (length (hash-table-keys ht))))
