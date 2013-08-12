@@ -5,7 +5,7 @@
 
 (define (sum-square-digit n)
   (apply + (map (cut expt <> 2)
-                  (number->list n))))
+                (number->list n))))
 
 (define (fold-square-digit n)
   (let1 r (sum-square-digit n)
