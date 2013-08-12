@@ -1,4 +1,3 @@
-
 (use srfi-13)
 
 (define (palindrome? n)
