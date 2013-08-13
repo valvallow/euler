@@ -1,7 +1,7 @@
 (use gauche.collection)
 (use gauche.lazy)
 
-(define (spiral-diagonal-numbers limit)
+(define (lazy-spiral-diagonal-numbers limit)
   (lmap-accum
    (^(edge-len prev)
      (let1 diagonals (lmap-accum
@@ -14,4 +14,4 @@
    1 ; seed
    (lrange 3 (+ limit 1) 2)))
 
-(print (apply + 1 (apply append (spiral-diagonal-numbers 1001))))
+(print (apply + 1 (apply append (lazy-spiral-diagonal-numbers 1001))))
