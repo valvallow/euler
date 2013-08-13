@@ -1,9 +1,10 @@
 (use gauche.collection)
+(use gauche.lazy)
 
 (define (spiral-diagonal-numbers limit)
-  (map-accum
+  (lmap-accum
    (^(edge-len prev)
-     (let1 diagonals (map-accum
+     (let1 diagonals (lmap-accum
                       (^(i acc)
                         (let1 r (+ acc (- edge-len 1))
                           (values r r)))
